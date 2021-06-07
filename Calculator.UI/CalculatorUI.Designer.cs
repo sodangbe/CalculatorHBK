@@ -29,10 +29,26 @@ namespace Calculator.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorUI));
+            this.SuspendLayout();
+            // 
+            // CalculatorUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(589, 657);
+            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "CalculatorUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.CalculatorUI_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
