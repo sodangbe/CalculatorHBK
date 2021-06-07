@@ -26,7 +26,7 @@ namespace CalculatorHBK
         //setter
         public void SetLeft(string value)
         {
-            if (isNumeric(value) && !string.IsNullOrEmpty(value))
+            if (IsNumeric(value) && !string.IsNullOrEmpty(value))
             {
                 _left = value; ;
             }
@@ -54,7 +54,7 @@ namespace CalculatorHBK
         //setter
         public void SetRight(string value)
         {
-            if (isNumeric(value) && !string.IsNullOrEmpty(value))
+            if (IsNumeric(value) && !string.IsNullOrEmpty(value))
             {
                 _right = value; ;
             }
@@ -101,7 +101,7 @@ namespace CalculatorHBK
         public Calculator(string left, string right, string allowedOperator)
         {
                        
-            if(isNumeric(left) && !string.IsNullOrEmpty(left))
+            if(IsNumeric(left) && !string.IsNullOrEmpty(left))
             {
                 _left = left;
             }
@@ -111,7 +111,7 @@ namespace CalculatorHBK
 
             }
             
-            if (isNumeric(right) && !string.IsNullOrEmpty(left))
+            if (IsNumeric(right) && !string.IsNullOrEmpty(left))
             {
                 _right = right;
             }
@@ -184,7 +184,7 @@ namespace CalculatorHBK
         }
 #pragma warning restore IDE0060 // Remove unused parameter
         //Method to check if the property is numeric
-        public static bool isNumeric(string s)
+        public static bool IsNumeric(string s)
         {
             return double.TryParse(s, out double n);
         }
