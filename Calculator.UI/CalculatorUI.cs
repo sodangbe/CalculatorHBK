@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
-using CalculatorHBK;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
 
 namespace Calculator.UI
 {
     public partial class CalculatorUI : KryptonForm
     {
+        //Create calculator object for operations
+        CalculatorHBK.Calculator myCalc = new CalculatorHBK.Calculator();
         public CalculatorUI()
         {
             InitializeComponent();
             
         }
 
-        //Calculator myCalculator = new Calculator();
+       
 
         private void CalculatorUI_Load(object sender, EventArgs e)
         {
@@ -50,6 +43,12 @@ namespace Calculator.UI
         private void kButton_Add_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void kButton1_Click(object sender, EventArgs e)
+        {
+            myCalc.SetLeft(kButton1.Text);
+            kryptonRichTBResults.Text = myCalc.GetLeft();
         }
     }
 }

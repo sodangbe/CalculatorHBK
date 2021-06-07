@@ -215,6 +215,7 @@ namespace Calculator.UI
             this.kButton1.Size = new System.Drawing.Size(80, 77);
             this.kButton1.TabIndex = 16;
             this.kButton1.Values.Text = "1";
+            this.kButton1.Click += new System.EventHandler(this.kButton1_Click);
             // 
             // kButton_Add
             // 
