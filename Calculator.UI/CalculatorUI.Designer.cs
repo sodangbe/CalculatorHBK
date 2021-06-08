@@ -68,7 +68,7 @@ namespace Calculator.UI
             this.kryptonRichTBResults.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.kryptonRichTBResults.Size = new System.Drawing.Size(424, 92);
             this.kryptonRichTBResults.TabIndex = 1;
-            this.kryptonRichTBResults.Text = "0";
+            this.kryptonRichTBResults.Text = "";
             this.kryptonRichTBResults.ZoomFactor = 5F;
             // 
             // kButton_Multiply
@@ -169,6 +169,7 @@ namespace Calculator.UI
             this.kButton_Equal.Size = new System.Drawing.Size(80, 160);
             this.kButton_Equal.TabIndex = 12;
             this.kButton_Equal.Values.Text = "=";
+            this.kButton_Equal.Click += new System.EventHandler(this.kButton_Equal_Click);
             // 
             // kButton_Subtract
             // 
@@ -227,7 +228,7 @@ namespace Calculator.UI
             // 
             // CalculatorUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CausesValidation = false;
