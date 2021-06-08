@@ -89,6 +89,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\CalculatorHBK\bin\Debug\CalculatorHBK.dll">
+      <Link>CalculatorHBK.dll</Link>
+    </Content>
     <Content Include="calculator.ico" />
   </ItemGroup>
   <ItemGroup>
