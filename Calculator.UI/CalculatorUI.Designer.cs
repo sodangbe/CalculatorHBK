@@ -29,11 +29,9 @@ namespace Calculator.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorUI));
             this.kryptonListBox_Results = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             this.kryptonRichTBResults = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.kryptonCheckSet_Operators = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.kButton_Multiply = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton9 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton8 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -51,7 +49,6 @@ namespace Calculator.UI
             this.kButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton_Add = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton0 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet_Operators)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonListBox_Results
@@ -74,10 +71,6 @@ namespace Calculator.UI
             this.kryptonRichTBResults.Text = "0";
             this.kryptonRichTBResults.ZoomFactor = 5F;
             // 
-            // kryptonCheckSet_Operators
-            // 
-            this.kryptonCheckSet_Operators.CheckedButtonChanged += new System.EventHandler(this.kryptonCheckSet_Operators_CheckedButtonChanged);
-            // 
             // kButton_Multiply
             // 
             this.kButton_Multiply.Location = new System.Drawing.Point(444, 110);
@@ -86,7 +79,6 @@ namespace Calculator.UI
             this.kButton_Multiply.Size = new System.Drawing.Size(80, 77);
             this.kButton_Multiply.TabIndex = 2;
             this.kButton_Multiply.Values.Text = "*";
-            this.kButton_Multiply.Click += new System.EventHandler(this.kButton_Multiply_Click);
             // 
             // kButton9
             // 
@@ -141,7 +133,6 @@ namespace Calculator.UI
             this.kButton_Divide.Size = new System.Drawing.Size(80, 77);
             this.kButton_Divide.TabIndex = 8;
             this.kButton_Divide.Values.Text = "/";
-            this.kButton_Divide.Click += new System.EventHandler(this.kButton_Divide_Click);
             // 
             // kryptonButton8
             // 
@@ -187,7 +178,6 @@ namespace Calculator.UI
             this.kButton_Subtract.Size = new System.Drawing.Size(80, 77);
             this.kButton_Subtract.TabIndex = 13;
             this.kButton_Subtract.Values.Text = "-";
-            this.kButton_Subtract.Click += new System.EventHandler(this.kButton_Subtract_Click);
             // 
             // kButton3
             // 
@@ -215,7 +205,6 @@ namespace Calculator.UI
             this.kButton1.Size = new System.Drawing.Size(80, 77);
             this.kButton1.TabIndex = 16;
             this.kButton1.Values.Text = "1";
-            this.kButton1.Click += new System.EventHandler(this.kButton1_Click);
             // 
             // kButton_Add
             // 
@@ -225,7 +214,6 @@ namespace Calculator.UI
             this.kButton_Add.Size = new System.Drawing.Size(80, 77);
             this.kButton_Add.TabIndex = 17;
             this.kButton_Add.Values.Text = "+";
-            this.kButton_Add.Click += new System.EventHandler(this.kButton_Add_Click);
             // 
             // kButton0
             // 
@@ -270,7 +258,6 @@ namespace Calculator.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.CalculatorUI_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet_Operators)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,7 +266,6 @@ namespace Calculator.UI
 
         private ComponentFactory.Krypton.Toolkit.KryptonListBox kryptonListBox_Results;
         private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox kryptonRichTBResults;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSet_Operators;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton_Multiply;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton9;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton8;
