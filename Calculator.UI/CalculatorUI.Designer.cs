@@ -39,7 +39,7 @@ namespace Calculator.UI
             this.kButtonCE = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButtonC = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton_Divide = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton8 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton_Equal = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -88,6 +88,7 @@ namespace Calculator.UI
             this.kButton9.Size = new System.Drawing.Size(80, 77);
             this.kButton9.TabIndex = 3;
             this.kButton9.Values.Text = "9";
+            this.kButton9.Click += new System.EventHandler(this.kButton9_Click);
             // 
             // kButton8
             // 
@@ -97,6 +98,7 @@ namespace Calculator.UI
             this.kButton8.Size = new System.Drawing.Size(80, 77);
             this.kButton8.TabIndex = 4;
             this.kButton8.Values.Text = "8";
+            this.kButton8.Click += new System.EventHandler(this.kButton8_Click);
             // 
             // kButton7
             // 
@@ -106,6 +108,7 @@ namespace Calculator.UI
             this.kButton7.Size = new System.Drawing.Size(80, 77);
             this.kButton7.TabIndex = 5;
             this.kButton7.Values.Text = "7";
+            this.kButton7.Click += new System.EventHandler(this.kButton7_Click);
             // 
             // kButtonCE
             // 
@@ -123,7 +126,7 @@ namespace Calculator.UI
             this.kButtonC.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kButtonC.Size = new System.Drawing.Size(80, 77);
             this.kButtonC.TabIndex = 7;
-            this.kButtonC.Values.Text = "9";
+            this.kButtonC.Values.Text = "C";
             // 
             // kButton_Divide
             // 
@@ -134,14 +137,15 @@ namespace Calculator.UI
             this.kButton_Divide.TabIndex = 8;
             this.kButton_Divide.Values.Text = "/";
             // 
-            // kryptonButton8
+            // kryptonButton6
             // 
-            this.kryptonButton8.Location = new System.Drawing.Point(358, 193);
-            this.kryptonButton8.Name = "kryptonButton8";
-            this.kryptonButton8.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.kryptonButton8.Size = new System.Drawing.Size(80, 77);
-            this.kryptonButton8.TabIndex = 9;
-            this.kryptonButton8.Values.Text = "6";
+            this.kryptonButton6.Location = new System.Drawing.Point(358, 193);
+            this.kryptonButton6.Name = "kryptonButton6";
+            this.kryptonButton6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kryptonButton6.Size = new System.Drawing.Size(80, 77);
+            this.kryptonButton6.TabIndex = 9;
+            this.kryptonButton6.Values.Text = "6";
+            this.kryptonButton6.Click += new System.EventHandler(this.kryptonButton6_Click);
             // 
             // kButton5
             // 
@@ -151,6 +155,7 @@ namespace Calculator.UI
             this.kButton5.Size = new System.Drawing.Size(80, 77);
             this.kButton5.TabIndex = 10;
             this.kButton5.Values.Text = "5";
+            this.kButton5.Click += new System.EventHandler(this.kButton5_Click);
             // 
             // kButton4
             // 
@@ -160,6 +165,7 @@ namespace Calculator.UI
             this.kButton4.Size = new System.Drawing.Size(80, 77);
             this.kButton4.TabIndex = 11;
             this.kButton4.Values.Text = "4";
+            this.kButton4.Click += new System.EventHandler(this.kButton4_Click);
             // 
             // kButton_Equal
             // 
@@ -169,7 +175,6 @@ namespace Calculator.UI
             this.kButton_Equal.Size = new System.Drawing.Size(80, 160);
             this.kButton_Equal.TabIndex = 12;
             this.kButton_Equal.Values.Text = "=";
-            this.kButton_Equal.Click += new System.EventHandler(this.kButton_Equal_Click);
             // 
             // kButton_Subtract
             // 
@@ -188,6 +193,7 @@ namespace Calculator.UI
             this.kButton3.Size = new System.Drawing.Size(80, 77);
             this.kButton3.TabIndex = 14;
             this.kButton3.Values.Text = "3";
+            this.kButton3.Click += new System.EventHandler(this.kButton3_Click);
             // 
             // kButton2
             // 
@@ -197,6 +203,7 @@ namespace Calculator.UI
             this.kButton2.Size = new System.Drawing.Size(80, 77);
             this.kButton2.TabIndex = 15;
             this.kButton2.Values.Text = "2";
+            this.kButton2.Click += new System.EventHandler(this.kButton2_Click);
             // 
             // kButton1
             // 
@@ -225,6 +232,7 @@ namespace Calculator.UI
             this.kButton0.Size = new System.Drawing.Size(252, 77);
             this.kButton0.TabIndex = 18;
             this.kButton0.Values.Text = "0";
+            this.kButton0.Click += new System.EventHandler(this.kButton0_Click);
             // 
             // CalculatorUI
             // 
@@ -242,7 +250,7 @@ namespace Calculator.UI
             this.Controls.Add(this.kButton_Equal);
             this.Controls.Add(this.kButton4);
             this.Controls.Add(this.kButton5);
-            this.Controls.Add(this.kryptonButton8);
+            this.Controls.Add(this.kryptonButton6);
             this.Controls.Add(this.kButton_Divide);
             this.Controls.Add(this.kButtonC);
             this.Controls.Add(this.kButtonCE);
@@ -275,7 +283,7 @@ namespace Calculator.UI
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButtonCE;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButtonC;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton_Divide;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton8;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton4;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton_Equal;
