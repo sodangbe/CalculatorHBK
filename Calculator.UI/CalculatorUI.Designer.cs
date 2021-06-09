@@ -31,7 +31,7 @@ namespace Calculator.UI
         /// </summary>
         private void InitializeComponent()
         {
-            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FontStyle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.kryptonListBox_Results = new ComponentFactory.Krypton.Toolkit.KryptonListBox();
             this.kryptonRichTBResults = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.kButton_Multiply = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -39,7 +39,7 @@ namespace Calculator.UI
             this.kButton8 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton7 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButtonCE = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kButtonC = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kButtonPreviousResults = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton_Divide = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -126,14 +126,14 @@ namespace Calculator.UI
             this.kButtonCE.Values.Text = "CE";
             this.kButtonCE.Click += new System.EventHandler(this.kButtonCE_Click);
             // 
-            // kButtonC
+            // kButtonPreviousResults
             // 
-            this.kButtonC.Location = new System.Drawing.Point(351, 104);
-            this.kButtonC.Name = "kButtonC";
-            this.kButtonC.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.kButtonC.Size = new System.Drawing.Size(50, 44);
-            this.kButtonC.TabIndex = 7;
-            this.kButtonC.Values.Text = "C";
+            this.kButtonPreviousResults.Location = new System.Drawing.Point(351, 104);
+            this.kButtonPreviousResults.Name = "kButtonPreviousResults";
+            this.kButtonPreviousResults.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.kButtonPreviousResults.Size = new System.Drawing.Size(50, 44);
+            this.kButtonPreviousResults.TabIndex = 7;
+            this.kButtonPreviousResults.Values.Text = "PR";
             // 
             // kButton_Divide
             // 
@@ -245,7 +245,7 @@ namespace Calculator.UI
             this.kButton0.Values.Text = "0";
             this.kButton0.Click += new System.EventHandler(this.kButton0_Click);
             // 
-            // FontStyle
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -263,7 +263,7 @@ namespace Calculator.UI
             this.Controls.Add(this.kButton5);
             this.Controls.Add(this.kryptonButton6);
             this.Controls.Add(this.kButton_Divide);
-            this.Controls.Add(this.kButtonC);
+            this.Controls.Add(this.kButtonPreviousResults);
             this.Controls.Add(this.kButtonCE);
             this.Controls.Add(this.kButton7);
             this.Controls.Add(this.kButton8);
@@ -273,9 +273,9 @@ namespace Calculator.UI
             this.Controls.Add(this.kryptonListBox_Results);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-           // this.Icon = ((System.Drawing.Icon)(Resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FontStyle";
+            this.Name = "Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.CalculatorUI_Load);
@@ -292,7 +292,7 @@ namespace Calculator.UI
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton8;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton7;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButtonCE;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kButtonC;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kButtonPreviousResults;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton_Divide;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kButton5;

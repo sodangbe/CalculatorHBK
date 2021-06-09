@@ -136,7 +136,7 @@ namespace CalculatorHBK
         {
             //int.Parse(this.left) != Convert.ToInt32(this._left);  //int.parse the other casting alternative will throw an ArgumentNullException when passing a null value
 
-            int result = 0;
+            var result = 0;
 
 
             //addition 
@@ -148,14 +148,14 @@ namespace CalculatorHBK
                 }
             //multiplication
             if (this._operator == "*")
-                //checking for arithmetic flow 
+                //checking for arithmetic overflow 
                 checked
                 {
                     result += Convert.ToInt32(this._left) * Convert.ToInt32(this._right);
                 }
             //substraction
             if (this._operator == "-")
-                //checking for arithmetic flow 
+                //checking for arithmetic overflow 
                 checked
                 {
                     result += Convert.ToInt32(this._left) - Convert.ToInt32(this._right);
@@ -164,7 +164,7 @@ namespace CalculatorHBK
             if ((this._operator == "/"))
             checked
             {
-                result += Convert.ToInt32(this._left) / Convert.ToInt32(this._right);
+                   result += Convert.ToInt32(this._left) / Convert.ToInt32(this._right);
             }
 
             return result;

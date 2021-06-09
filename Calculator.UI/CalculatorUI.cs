@@ -7,16 +7,19 @@ using System.Text;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Linq;
+using CalculatorHBK.Properties;
 
 namespace Calculator.UI
 {
     public partial class Form : KryptonForm
     {
+
+    #region Global variables
         //Create calculator object for operations
         CalculatorHBK.Calculator myCalculator = new CalculatorHBK.Calculator();
         ArrayList collectTheOperationList = new ArrayList();
         bool operationComplete = false;
-
+    #endregion
 
         public Form()
         {
@@ -24,34 +27,27 @@ namespace Calculator.UI
 
         }
 
-        //private void InitializeComponent()
-       // {
-       //     throw new NotImplementedException();
-        //}
-
+     
         private void CalculatorUI_Load(object sender, EventArgs e)
         {
 
         }
 
-   /// if (operationComplete.Equals(true))
-               //{
-      //             kryptonRichTBResults.Clear();
-      //             operationComplete.Equals(false);
-       //            kryptonRichTBResults.Text = kButton1.Text;
-    //           } 
-  //  else // starting calculator and order of selection for the keys 
-               
-   // {
 
-    #region ButtonClickEvents 
+    #region Numeric Button Click Events 
 
+   
     //cannot start a new operation with a 0 so we will not need to call the numericKeySelection function
     private void kButton0_Click(object sender, EventArgs e)
     {
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete == false)
         {
             kryptonRichTBResults.Text += kButton0.Text;
+        }
+        else
+        {
+                kryptonRichTBResults.Clear();
+                operationComplete = (false);
         }
     }
 
@@ -60,10 +56,7 @@ namespace Calculator.UI
 
         //numericKeySelection(kButton1.Text);
         // Already ran the calculator - we will check the flag 
-
-
-
-        if (kryptonRichTBResults.Text != string.Empty)
+        if (kryptonRichTBResults.Text != string.Empty && operationComplete == false)
         {
 
             kryptonRichTBResults.Text += kButton1.Text;
@@ -71,8 +64,9 @@ namespace Calculator.UI
         }
         else
         {
+            
             kryptonRichTBResults.Text = kButton1.Text;
-
+            operationComplete = (false);
         }
 
     }
@@ -80,7 +74,7 @@ namespace Calculator.UI
     private void kButton2_Click(object sender, EventArgs e)
     {
         // numericKeySelection(kButton2.Text);
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete == false)
         {
             kryptonRichTBResults.Text += kButton2.Text;
 
@@ -88,15 +82,15 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton2.Text;
-
+            operationComplete = false;
         }
 
     }
 
     private void kButton3_Click(object sender, EventArgs e)
     {
-        // numericKeySelection(kButton3.Text);
-        if ((kryptonRichTBResults.Text != string.Empty))
+            // numericKeySelection(kButton3.Text);
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete == false)
         {
             kryptonRichTBResults.Text += kButton3.Text;
 
@@ -104,23 +98,24 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton3.Text;
-
+            operationComplete = false ;
 
         }
     }
 
     private void kButton4_Click(object sender, EventArgs e)
     {
-        //numericKeySelection(kButton4.Text);
-        if ((kryptonRichTBResults.Text != string.Empty))
+            //numericKeySelection(kButton4.Text);
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
+            
             kryptonRichTBResults.Text += kButton4.Text;
 
         }
         else
         {
             kryptonRichTBResults.Text = kButton4.Text;
-
+            operationComplete = false ;
 
         }
 
@@ -130,7 +125,7 @@ namespace Calculator.UI
     {
         //numericKeySelection(kButton5.Text);
 
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
             kryptonRichTBResults.Text += kButton5.Text;
 
@@ -138,7 +133,7 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton5.Text;
-
+                operationComplete = (false);
 
         }
     }
@@ -147,7 +142,7 @@ namespace Calculator.UI
     {
         // numericKeySelection(kryptonButton6.Text);
 
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
             kryptonRichTBResults.Text += kryptonButton6.Text;
 
@@ -155,7 +150,7 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kryptonButton6.Text;
-
+                operationComplete = false;
 
         }
     }
@@ -164,7 +159,7 @@ namespace Calculator.UI
     {
         // numericKeySelection(kButton7.Text);
 
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
             kryptonRichTBResults.Text += kButton7.Text;
 
@@ -172,7 +167,7 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton7.Text;
-
+                operationComplete = (false);
 
         }
     }
@@ -181,7 +176,7 @@ namespace Calculator.UI
     {
         //numericKeySelection(kButton8.Text);
 
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
             kryptonRichTBResults.Text += kButton8.Text;
 
@@ -189,7 +184,7 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton8.Text;
-
+            operationComplete = (false);
 
         }
 
@@ -199,7 +194,7 @@ namespace Calculator.UI
     {
         //numericKeySelection(kButton9.Text);
 
-        if ((kryptonRichTBResults.Text != string.Empty))
+        if ((kryptonRichTBResults.Text != string.Empty) && operationComplete.Equals(false))
         {
             kryptonRichTBResults.Text += kButton9.Text;
 
@@ -207,14 +202,14 @@ namespace Calculator.UI
         else
         {
             kryptonRichTBResults.Text = kButton9.Text;
-
+            operationComplete = (false);
 
         }
     }
 
-    #endregion
-    
-     //}              
+        #endregion
+
+    #region  Operators Button Click Events        
         private void kButton_Add_Click(object sender, EventArgs e)
         {
             /* if (kryptonRichTBResults.Text != string.Empty )
@@ -263,6 +258,8 @@ namespace Calculator.UI
             kryptonRichTBResults.Clear();
         }
 
+        #endregion
+
         private void kButton_Equal_Click(object sender, EventArgs e)
         {
             //Empty result textbox the equal click will not trigger the events below
@@ -296,13 +293,16 @@ namespace Calculator.UI
                     //6 - Clear the arraylist and set operation finished flag to true 
                     collectTheOperationList.Clear();
                     operationComplete = true;
+                     
                     
-            }
+                }
             
 
         }
 
-
+    #region Helper Methods 
+       
+        
         //Method to format arraylist to a string for the list box 
         private string formatOperationList (ArrayList arrayList)
         {
@@ -317,7 +317,7 @@ namespace Calculator.UI
 
       
          
-        //Method to select the font of the calculator number
+        //Method to select the font of the calculator numbers in the results textbox
         private void kryptonRichTBResults_TextChanged(object sender, EventArgs e)
         {
             this.kryptonRichTBResults.SelectAll();
@@ -382,7 +382,7 @@ namespace Calculator.UI
             kryptonRichTBResults.Clear();
         }
 
-
+        #endregion
 
 
         /*
