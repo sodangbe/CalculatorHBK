@@ -71,15 +71,18 @@ namespace Calcultor.Test
 
 
         [TestMethod]
-        [ExpectedException(typeof(DivideByZeroException))]
+        //[ExpectedException(typeof(DivideByZeroException))]
         public void Test_Calculate_DivisionbyZero()
         {
             //Arrange 
             Calculator myCalc = new Calculator("256", "0", "/");
-            int actual = myCalc.Calculate();
-
+            
+            //Act
+            int calc = myCalc.Calculate();
+            string actual = myCalc.error;
+            
             //Assert 
-            Assert.AreEqual(256, actual);
+            Assert.AreEqual("Attempted to divide by zero.", actual);
 
         }
 
@@ -122,7 +125,7 @@ namespace Calcultor.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
+        //[ExpectedException(typeof(OverflowException))]
         public void Test_Calculate_ArithmeticOverflow()
         {
             //Arrange 
@@ -132,10 +135,11 @@ namespace Calcultor.Test
             myCalc.SetOperator("+");
 
             //Act
-            int actual = myCalc.Calculate();
+            int calc = myCalc.Calculate();
+            string actual = myCalc.error;
 
             //Assert 
-            Assert.AreEqual(-2147483648, actual);
+            Assert.AreEqual("Arithmetic operation resulted in an overflow.", actual);
 
         }
     }

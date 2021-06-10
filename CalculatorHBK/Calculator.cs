@@ -140,7 +140,7 @@ namespace CalculatorHBK
         {
             //int.Parse(this.left) != Convert.ToInt32(this._left);  //int.parse the other casting alternative will throw an ArgumentNullException when passing a null value
 
-            var result = 0;
+            int result = 0;
 
             try
             {
