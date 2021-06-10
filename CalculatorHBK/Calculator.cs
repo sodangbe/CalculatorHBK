@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace CalculatorHBK
         //Allowed operators as a string of 4 characters 
         private readonly string AllowedOperator = "+-*/";
         public string error { get; set; }
+        public ArrayList arrayResults { get; set; }
 
         // Declaring left property with Get and Set methods
 
@@ -195,10 +197,10 @@ namespace CalculatorHBK
         }
 
 #pragma warning disable IDE0060 // Remove unused parameter
-        public int GetPreviousResult(int index)
+        public string GetPreviousResult(int index)
         {
 
-            return index;
+            return (string)arrayResults[index];
 
         }
 #pragma warning restore IDE0060 // Remove unused parameter
