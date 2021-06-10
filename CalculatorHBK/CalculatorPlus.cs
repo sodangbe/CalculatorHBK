@@ -12,40 +12,31 @@ namespace CalculatorHBK
     {
         public string _equationToCompute { get; set; }
         
-        public CalculatorPlus()
+        public CalculatorPlus(string equation)
         {
-            
+            this._equationToCompute = equation;
         }
 
-        public int Calculate(string _equationToCompute)
+        public new int Calculate()
         {
-            //ArrayList equationParsed = new ArrayList();
-
-            //string _equationToCompute = equation;
-
-            //string[] equationArray = new string[_equationToCompute.Length];
-            // var equation = _equationToCompute;
-            //var results = Regex.Split(_equationToCompute, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
-            
-            //_equationToCompute ="10-2*6/4";
+          
             var results = Regex.Split(_equationToCompute, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
 
-            string[] equationArray = new string[results.Count];
-            Console.WriteLine(_equationToCompute);
+            string[] equationArray = Array.Empty<string>();
+          
 
             for (int i = 0; i < results.Count(); i++)
             {
                equationArray[i] = results[i].ToString();
             }
-            Console.WriteLine(equationArray[0]);
-            Console.WriteLine(equationArray[equationArray.Length].ToString());
+           
             try
             {
                 //Check if the first and last item are numbers 
-                if (IsNumeric(equationArray[0].ToString()) && IsNumeric(equationArray[equationArray.Length].ToString()))
+                if (IsNumeric(equationArray[0].ToString()))
                 {
                     //compute from left to right for multiplication and divison first 
-                    for (int i = 1; i < equationArray.Length - 1; i++)
+                    for (int i = 1 ; i < equationArray.Length - 1; i++)
                     {
                         string item = equationArray[i];
 
@@ -53,19 +44,19 @@ namespace CalculatorHBK
                         switch (item)
                         {
                             case "*":
-                                num = Convert.ToInt32(equationArray[i - 1]) * Convert.ToInt32(equationArray[i + 1]);
-                                //SetOperator(item);
-                                //SetLeft(equationArray[i - 1]);
-                                // SetRight(equationArray[i + 1]);
-                                // num = Calculate();
+                                //num = Convert.ToInt32(equationArray[i - 1]) * Convert.ToInt32(equationArray[i + 1]);
+                                SetOperator(item);
+                                SetLeft(equationArray[i - 1]);
+                                SetRight(equationArray[i + 1]);
+                                 num = Calculate();
                                 break;
                             case "/":
                                 num = Convert.ToInt32(equationArray[i - 1]) / Convert.ToInt32(equationArray[i + 1]);
-                                //SetOperator(item);
-                                //SetOperator(item);
-                                // SetLeft(equationArray[i - 1]);
-                                // SetRight(equationArray[i + 1]);
-                                //  num = Calculate();
+                                SetOperator(item);
+                                SetOperator(item);
+                                SetLeft(equationArray[i - 1]);
+                                SetRight(equationArray[i + 1]);
+                                 num = Calculate();
                                 break;
                         }
                         if (num > 0)
@@ -89,20 +80,20 @@ namespace CalculatorHBK
                         switch (item)
                         {
                             case "+":
-                                num = Convert.ToInt32(equationArray[i - 1]) + Convert.ToInt32(equationArray[i + 1]);
-                                // SetOperator(item);
-                                // SetOperator(item);
-                                // SetLeft(equationArray[i - 1]);
-                                //  SetRight(equationArray[i + 1]);
-                                //  num = Calculate();
+                                //num = Convert.ToInt32(equationArray[i - 1]) + Convert.ToInt32(equationArray[i + 1]);
+                                SetOperator(item);
+                                SetOperator(item);
+                                SetLeft(equationArray[i - 1]);
+                                 SetRight(equationArray[i + 1]);
+                                 num = Calculate();
                                 break;
                             case "-":
-                                num = Convert.ToInt32(equationArray[i - 1]) - Convert.ToInt32(equationArray[i + 1]);
-                                // SetOperator(item);
-                                // SetOperator(item);
-                                // SetLeft(equationArray[i - 1]);
-                                //  SetRight(equationArray[i + 1]);
-                                //  num = Calculate();
+                                //num = Convert.ToInt32(equationArray[i - 1]) - Convert.ToInt32(equationArray[i + 1]);
+                                 SetOperator(item);
+                                 SetOperator(item);
+                                 SetLeft(equationArray[i - 1]);
+                                 SetRight(equationArray[i + 1]);
+                                 num = Calculate();
                                 break;
                         }
                         if (num > 0)
@@ -120,7 +111,9 @@ namespace CalculatorHBK
             {
                 error = e.Message;  //Grab this from the parent class
             }
-
+            finally{
+                Console.WriteLine("end");
+            }
             string result = string.Join("", equationArray);
           
             return int.Parse(result);

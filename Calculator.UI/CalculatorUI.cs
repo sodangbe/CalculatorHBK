@@ -404,7 +404,7 @@ namespace Calculator.UI
         {
             if (myCalculator.arrayResults.Count > 0)
             {
-                kryptonListBox_Results.Items.Add($"previous result: {myCalculator.GetPreviousResult(myCalculator.arrayResults.Count - 1)}");
+                kryptonListBox_Results.Items.Add($"previous result: {myCalculator.GetPreviousResult(myCalculator.arrayResults.Count - 2)}");
             }
         }
 
