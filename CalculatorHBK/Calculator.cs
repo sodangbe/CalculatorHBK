@@ -12,6 +12,7 @@ namespace CalculatorHBK
 
         //Allowed operators as a string of 4 characters 
         private readonly string AllowedOperator = "+-*/";
+        public string error { get; set; }
 
         // Declaring left property with Get and Set methods
 
@@ -138,34 +139,52 @@ namespace CalculatorHBK
 
             var result = 0;
 
-
-            //addition 
-            if (this._operator == "+")
-                //checking for aritmetic flow
-                checked
-                {
-                    result += Convert.ToInt32(this._left) + Convert.ToInt32(this._right);
-                }
-            //multiplication
-            if (this._operator == "*")
-                //checking for arithmetic overflow 
-                checked
-                {
-                    result += Convert.ToInt32(this._left) * Convert.ToInt32(this._right);
-                }
-            //substraction
-            if (this._operator == "-")
-                //checking for arithmetic overflow 
-                checked
-                {
-                    result += Convert.ToInt32(this._left) - Convert.ToInt32(this._right);
-                }
-            //division 
-            if ((this._operator == "/"))
-            checked
+            try
             {
-                   result += Convert.ToInt32(this._left) / Convert.ToInt32(this._right);
+                //addition 
+                if (this._operator == "+")
+                    //checking for aritmetic flow
+                    checked
+                    {
+                        result += Convert.ToInt32(this._left) + Convert.ToInt32(this._right);
+                    }
+                //multiplication
+                if (this._operator == "*")
+                    //checking for arithmetic overflow 
+                    checked
+                    {
+                        result += Convert.ToInt32(this._left) * Convert.ToInt32(this._right);
+                    }
+                //substraction
+                if (this._operator == "-")
+                    //checking for arithmetic overflow 
+                    checked
+                    {
+                        result += Convert.ToInt32(this._left) - Convert.ToInt32(this._right);
+                    }
+
             }
+            catch (OverflowException oex)
+            {
+
+                error = oex.Message;
+            }
+            
+            try 
+            { 
+            //division  with divide by zero exception 
+            if ((this._operator == "/"))
+                checked
+                {
+                    result += Convert.ToInt32(this._left) / Convert.ToInt32(this._right);
+                }
+            }
+            catch (DivideByZeroException e)
+            {
+
+                error = e.Message;
+            }
+            
 
             return result;
         }

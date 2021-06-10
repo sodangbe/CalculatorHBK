@@ -22,9 +22,25 @@ namespace Calculator.Console
             myCalc.SetOperator("*");
             myCalc.Calculate();
             System.Console.WriteLine($"3 * 9 = {myCalc.GetResult()}");
+
+            //Divide by zero 
+            myCalc.SetLeft("9");
+            myCalc.SetRight("0");
+            myCalc.SetOperator("/");
+            myCalc.Calculate();
+            System.Console.WriteLine(myCalc.error);
+            System.Console.WriteLine($"9/0 = {myCalc.GetResult()}");
+
+            //Overflow Error
+            myCalc.SetLeft("2147483647");
+            myCalc.SetRight("2147483647");
+            myCalc.SetOperator("*");
+            myCalc.Calculate();
+            System.Console.WriteLine(myCalc.error);
+            System.Console.WriteLine($"2147483647*2147483647 = {myCalc.GetResult()}");
+
+          
             System.Console.ReadLine();
-
-
 
         }
     }

@@ -46,7 +46,8 @@ namespace Calculator.UI
         }
         else
         {
-                kryptonRichTBResults.Clear();
+                //kryptonRichTBResults.Clear();
+                kryptonRichTBResults.Text = kButton0.Text;
                 operationComplete = (false);
         }
     }
@@ -58,13 +59,12 @@ namespace Calculator.UI
         // Already ran the calculator - we will check the flag 
         if (kryptonRichTBResults.Text != string.Empty && operationComplete == false)
         {
-
-            kryptonRichTBResults.Text += kButton1.Text;
+          
+                kryptonRichTBResults.Text += kButton1.Text;
 
         }
         else
-        {
-            
+        {            
             kryptonRichTBResults.Text = kButton1.Text;
             operationComplete = (false);
         }
@@ -272,11 +272,14 @@ namespace Calculator.UI
                     collectTheOperationList.Add("=");
 
                     //2 - Set the second operand of the operation to our calculator
+         
                     myCalculator.SetRight(kryptonRichTBResults.Text);
+                
 
                     //3 - Compute the operation 
                     myCalculator.Calculate();
 
+                    
                     //4 - Display the result in the resultTextbox 
                     kryptonRichTBResults.Text = myCalculator.GetResult();
                     collectTheOperationList.Add(kryptonRichTBResults.Text);
@@ -285,7 +288,6 @@ namespace Calculator.UI
 
                     //kryptonListBox_Results.Items.AddRange(collectTheOperationList.Cast<string>.ToArray());
 
-                    //kryptonListBox_Results.DataSource = collectTheOperationList;
                     kryptonListBox_Results.Items.Add(formatOperationList(collectTheOperationList));
 
 
@@ -293,8 +295,15 @@ namespace Calculator.UI
                     //6 - Clear the arraylist and set operation finished flag to true 
                     collectTheOperationList.Clear();
                     operationComplete = true;
-                     
-                    
+
+
+                }
+                else
+                {
+
+                 kryptonRichTBResults.Text = "0 NOT ALLOWED";
+                 collectTheOperationList.Clear();
+                 operationComplete = true;
                 }
             
 
@@ -380,74 +389,14 @@ namespace Calculator.UI
         private void kButtonCE_Click(object sender, EventArgs e)
         {
             kryptonRichTBResults.Clear();
+            kryptonListBox_Results.Items.Clear();
+            collectTheOperationList.Clear();
+            operationComplete = false;
         }
 
         #endregion
 
 
-        /*
-         //We are going to build the arithmetic function by appending the text from every button clicked 
-         private string BuildTheArithmeticEquation(string buttonTextReturned)
-         {
-             StringBuilder sb = new StringBuilder();
-
-             sb.Append(buttonTextReturned);
-
-             return sb.ToString();
-
-         }
-
-
-         //We will split the string to store into our calculator properties 
-         private void SetCalculatorValues(string arithmeticOperation )
-         {
-             Char[] operators = { '+', '-', '*', '/' };
-             String[] calculatorPropertySetters = arithmeticOperation.Split(operators);
-
-              for (int i = 0; i < calculatorPropertySetters.Length; i++)
-              {
-
-              }
-
-             myCalculator.SetLeft(calculatorPropertySetters[0]);
-             myCalculator.SetOperator(calculatorPropertySetters[1]);
-             myCalculator.SetRight(calculatorPropertySetters[2]);
-
-         }
-
-
-         private int ResultOfOperation()
-         {
-             return myCalculator.Calculate();
-         }
-
-         private void kButton_Equal_Click(object sender, EventArgs e)
-         {
-             kryptonRichTBResults.Text = ResultOfOperation().ToString();
-
-         }
-
-         /*private void kButton1_Click(object sender, EventArgs e)
-         {
-             myCalc.SetLeft(kButton1.Text);
-             kryptonRichTBResults.Text = myCalc.GetLeft();
-         }
-
-           //We will split the string to store into our calculator properties 
-       private void SetCalculatorValues(string arithmeticOperation)
-       {
-           Char[] operators = { '+', '-', '*', '/' };
-           String[] calculatorPropertySetters = arithmeticOperation.Split(operators);
-
-           //for (int i = 0; i < calculatorPropertySetters.Length; i++)
-           //{
-
-           //}
-
-           myCalculator.SetLeft(calculatorPropertySetters[0]);
-           //myCalculator.SetOperator(calculatorPropertySetters[1]);
-           myCalculator.SetRight(calculatorPropertySetters[2]);
-
-       }*/
+       
     }
 }
