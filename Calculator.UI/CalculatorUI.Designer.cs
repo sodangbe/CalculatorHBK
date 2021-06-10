@@ -134,6 +134,7 @@ namespace Calculator.UI
             this.kButtonPreviousResults.Size = new System.Drawing.Size(87, 94);
             this.kButtonPreviousResults.TabIndex = 7;
             this.kButtonPreviousResults.Values.Text = "PR";
+            this.kButtonPreviousResults.Click += new System.EventHandler(this.kButtonPreviousResults_Click);
             // 
             // kButton_Divide
             // 

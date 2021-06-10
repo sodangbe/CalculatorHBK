@@ -27,6 +27,9 @@ namespace Calculator.Console
             System.Console.WriteLine($"previous result: + {myCalc.GetPreviousResult(0)}");
 
 
+           
+            
+            
             //Divide by zero 
             myCalc.SetLeft("9");
             myCalc.SetRight("0");

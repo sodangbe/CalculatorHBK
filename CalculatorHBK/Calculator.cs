@@ -15,6 +15,7 @@ namespace CalculatorHBK
         private readonly string AllowedOperator = "+-*/";
         public string error { get; set; }
         public ArrayList arrayResults { get; set; }
+        
 
         // Declaring left property with Get and Set methods
 
@@ -196,14 +197,14 @@ namespace CalculatorHBK
 
         }
 
-#pragma warning disable IDE0060 // Remove unused parameter
+
         public string GetPreviousResult(int index)
         {
 
             return (string)arrayResults[index];
 
         }
-#pragma warning restore IDE0060 // Remove unused parameter
+
         //Method to check if the property is numeric
         public static bool IsNumeric(string s)
         {

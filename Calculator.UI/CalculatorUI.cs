@@ -2,6 +2,7 @@
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Documents;
@@ -18,6 +19,7 @@ namespace Calculator.UI
         //Create calculator object for operations
         CalculatorHBK.Calculator myCalculator = new CalculatorHBK.Calculator();
         ArrayList collectTheOperationList = new ArrayList();
+        
         bool operationComplete = false;
     
 
@@ -269,7 +271,7 @@ namespace Calculator.UI
 
                     kryptonRichTBResults.Text = errorHandler();
                     collectTheOperationList.Add(kryptonRichTBResults.Text);
-
+                    myCalculator.arrayResults.Add(kryptonRichTBResults.Text);
                     //5 - Add the operation to the ListBox
                     kryptonListBox_Results.Items.Add(formatOperationList(collectTheOperationList));
 
@@ -367,6 +369,7 @@ namespace Calculator.UI
             kryptonListBox_Results.Items.Clear();
             collectTheOperationList.Clear();
             operationComplete = false;
+            myCalculator.arrayResults.Clear();
         }
 
         //This method handles the error messages from exception thrown by calculator class
@@ -394,9 +397,17 @@ namespace Calculator.UI
 
         }
 
+        //display previous result 
+        private void kButtonPreviousResults_Click(object sender, EventArgs e)
+        {
+            if (myCalculator.arrayResults.Count > 0)
+            {
+                kryptonListBox_Results.Items.Add($"previous result: + {myCalculator.GetPreviousResult(myCalculator.arrayResults.Count - 1)}");
+            }
+        }
+
         #endregion
 
 
-       
     }
 }
