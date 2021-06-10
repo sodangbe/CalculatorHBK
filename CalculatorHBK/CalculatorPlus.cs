@@ -11,57 +11,61 @@ namespace CalculatorHBK
     public class CalculatorPlus : Calculator
     {
         public string _equationToCompute { get; set; }
-        public CalculatorPlus(string equationToCompute)
+        
+        public CalculatorPlus()
         {
-            this._equationToCompute = equationToCompute;
+            
         }
 
-        public new int Calculate()
+        public int Calculate(string _equationToCompute)
         {
-            // ArrayList equationParsed = new ArrayList();
+            //ArrayList equationParsed = new ArrayList();
 
-            /* foreach (var match in Regex.Matches(equation, @"([*+/\-)(])|([0-9]+)"))
-              {
-
-                  //equationParsed.Add(match.ToString());
-
-              }*/
             //string _equationToCompute = equation;
 
-            string[] equationArray = new string[ _equationToCompute.Length];
-            for (int i = 0; i < _equationToCompute.Length; i++)
+            //string[] equationArray = new string[_equationToCompute.Length];
+            // var equation = _equationToCompute;
+            //var results = Regex.Split(_equationToCompute, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
+            
+            //_equationToCompute ="10-2*6/4";
+            var results = Regex.Split(_equationToCompute, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
+
+            string[] equationArray = new string[results.Count];
+            Console.WriteLine(_equationToCompute);
+
+            for (int i = 0; i < results.Count(); i++)
             {
-                equationArray[i] = _equationToCompute[i].ToString();
+               equationArray[i] = results[i].ToString();
             }
-
-
+            Console.WriteLine(equationArray[0]);
+            Console.WriteLine(equationArray[equationArray.Length].ToString());
             try
             {
                 //Check if the first and last item are numbers 
-                if (IsNumeric(equationArray[0].ToString()) && IsNumeric(equationArray[equationArray.Length - 1].ToString()))
+                if (IsNumeric(equationArray[0].ToString()) && IsNumeric(equationArray[equationArray.Length].ToString()))
                 {
                     //compute from left to right for multiplication and divison first 
                     for (int i = 1; i < equationArray.Length - 1; i++)
                     {
                         string item = equationArray[i];
-                        
+
                         int num = 0;
                         switch (item)
                         {
                             case "*":
-                                //SetOperator(equationParsed[i].ToString());
-                                SetOperator(item);
-                                SetLeft(equationArray[i - 1]);
-                                SetRight(equationArray[i + 1]);
-                                num = Calculate();
+                                num = Convert.ToInt32(equationArray[i - 1]) * Convert.ToInt32(equationArray[i + 1]);
+                                //SetOperator(item);
+                                //SetLeft(equationArray[i - 1]);
+                                // SetRight(equationArray[i + 1]);
+                                // num = Calculate();
                                 break;
                             case "/":
-                                // SetOperator(equationParsed[i].ToString());
-                                SetOperator(item);
-                                SetOperator(item);
-                                SetLeft(equationArray[i - 1]);
-                                SetRight(equationArray[i + 1]);
-                                num = Calculate();
+                                num = Convert.ToInt32(equationArray[i - 1]) / Convert.ToInt32(equationArray[i + 1]);
+                                //SetOperator(item);
+                                //SetOperator(item);
+                                // SetLeft(equationArray[i - 1]);
+                                // SetRight(equationArray[i + 1]);
+                                //  num = Calculate();
                                 break;
                         }
                         if (num > 0)
@@ -80,25 +84,25 @@ namespace CalculatorHBK
                     for (int i = 1; i < equationArray.Length - 1; i++)
                     {
                         string item = equationArray[i];
-                        //SetOperator(equationParsed[i].ToString());
+
                         int num = 0;
                         switch (item)
                         {
                             case "+":
-                                //SetOperator(equationParsed[i].ToString());
-                                SetOperator(item);
-                                SetOperator(item);
-                                SetLeft(equationArray[i - 1]);
-                                SetRight(equationArray[i + 1]);
-                                num = Calculate();
+                                num = Convert.ToInt32(equationArray[i - 1]) + Convert.ToInt32(equationArray[i + 1]);
+                                // SetOperator(item);
+                                // SetOperator(item);
+                                // SetLeft(equationArray[i - 1]);
+                                //  SetRight(equationArray[i + 1]);
+                                //  num = Calculate();
                                 break;
                             case "-":
-                                //SetOperator(equationParsed[i].ToString());
-                                SetOperator(item);
-                                SetOperator(item);
-                                SetLeft(equationArray[i - 1]);
-                                SetRight(equationArray[i + 1]);
-                                num = Calculate();
+                                num = Convert.ToInt32(equationArray[i - 1]) - Convert.ToInt32(equationArray[i + 1]);
+                                // SetOperator(item);
+                                // SetOperator(item);
+                                // SetLeft(equationArray[i - 1]);
+                                //  SetRight(equationArray[i + 1]);
+                                //  num = Calculate();
                                 break;
                         }
                         if (num > 0)
@@ -121,5 +125,6 @@ namespace CalculatorHBK
           
             return int.Parse(result);
         }
+       
     }
 }
