@@ -14,15 +14,21 @@ namespace Calculator.Console
         {
             CalculatorHBK.Calculator myCalc = new CalculatorHBK.Calculator("5", "1", "+");
             myCalc.arrayResults = new ArrayList();
-
+            CalculatorHBK.CalculatorPlus myCalc1 = new CalculatorHBK.CalculatorPlus("10-2*6/4");
+            int result = myCalc1.Calculate();
+            System.Console.WriteLine(result);
             myCalc.Calculate();
             System.Console.WriteLine($"5 + 1 = {myCalc.GetResult()}");
+          
             myCalc.arrayResults.Add(myCalc.GetResult());
             myCalc.SetLeft("3");
             myCalc.SetRight("9");
             myCalc.SetOperator("*");
+            
             myCalc.Calculate();
+          
             System.Console.WriteLine($"3 * 9 = {myCalc.GetResult()}");
+          
             myCalc.arrayResults.Add(myCalc.GetResult());
             System.Console.WriteLine($"previous result: {myCalc.GetPreviousResult(0)}");
 
