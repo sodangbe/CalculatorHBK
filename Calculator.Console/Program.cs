@@ -16,8 +16,8 @@ namespace Calculator.Console
             myCalc.arrayResults = new ArrayList();
             System.Console.WriteLine($"5 + 1 = {myCalc.GetResult()}");
 
-            //CalculatorPlus calc = new CalculatorPlus("10-2*6/4");
-            //calc.Calculate();
+            CalculatorPlus calc = new CalculatorPlus("10-2*6/4");
+            calc.Calculate();
 
 
 
