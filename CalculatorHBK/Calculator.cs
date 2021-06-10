@@ -99,7 +99,7 @@ namespace CalculatorHBK
         }
 
         //class calculator default constructor
-        public Calculator() { }
+        public Calculator() { this.arrayResults = new ArrayList(); }
 
         //class calculator constructor overloading 
         public Calculator(string left, string right, string allowedOperator)
@@ -133,6 +133,8 @@ namespace CalculatorHBK
                 throw new ArgumentException($"Operator Not Allowed,{allowedOperator}");
 
             }
+
+            this.arrayResults = new ArrayList();
         }
 
         // Method Calculate 

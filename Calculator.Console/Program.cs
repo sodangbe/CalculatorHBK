@@ -24,7 +24,7 @@ namespace Calculator.Console
             myCalc.Calculate();
             System.Console.WriteLine($"3 * 9 = {myCalc.GetResult()}");
             myCalc.arrayResults.Add(myCalc.GetResult());
-            System.Console.WriteLine($"previous result: + {myCalc.GetPreviousResult(0)}");
+            System.Console.WriteLine($"previous result: {myCalc.GetPreviousResult(0)}");
 
 
            

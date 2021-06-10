@@ -20,6 +20,8 @@ namespace Calculator.UI
         CalculatorHBK.Calculator myCalculator = new CalculatorHBK.Calculator();
         ArrayList collectTheOperationList = new ArrayList();
         
+
+        
         bool operationComplete = false;
     
 
@@ -402,7 +404,7 @@ namespace Calculator.UI
         {
             if (myCalculator.arrayResults.Count > 0)
             {
-                kryptonListBox_Results.Items.Add($"previous result: + {myCalculator.GetPreviousResult(myCalculator.arrayResults.Count - 1)}");
+                kryptonListBox_Results.Items.Add($"previous result: {myCalculator.GetPreviousResult(myCalculator.arrayResults.Count - 1)}");
             }
         }
 
