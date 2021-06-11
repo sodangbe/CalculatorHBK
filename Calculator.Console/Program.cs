@@ -49,8 +49,8 @@ namespace Calculator.Console
             System.Console.WriteLine();
             CalculatorPlus calc = new CalculatorPlus();
 
-            System.Console.WriteLine($"1 - The result of the equation 4-1+12*4 = {calc.Calculate("4-1+12*4").ToString()}");
-            calc.arrayResults.Add(calc.Calculate("4-1+12*4"));
+            System.Console.WriteLine($"1 - The result of the equation 10-2*6/4 = {calc.Calculate("10-2*6/4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("10-2*6/4"));
             calc.Dispose();
             System.Console.WriteLine($"2 - The result of the equation 10-5*6 = {calc.Calculate("10-5+6").ToString()}");
             calc.arrayResults.Add(calc.Calculate("10-5+6"));
@@ -85,10 +85,6 @@ namespace Calculator.Console
             {
                 System.Console.Write($"{x}  ");
             }
-
-
-
-
             myCalc.Dispose();
             calc.Dispose();
             System.Console.ReadLine();
