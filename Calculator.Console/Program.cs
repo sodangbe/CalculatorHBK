@@ -16,8 +16,9 @@ namespace Calculator.Console
             myCalc.arrayResults = new ArrayList();
             System.Console.WriteLine($"5 + 1 = {myCalc.GetResult()}");
 
-            CalculatorPlus calc = new CalculatorPlus("10-2*6/4");
-            calc.Calculate();
+            CalculatorPlus calc = new CalculatorPlus();
+           
+            System.Console.WriteLine(calc.Calculate("10-2*6/4").ToString());
 
 
 
@@ -32,9 +33,7 @@ namespace Calculator.Console
           
             myCalc.arrayResults.Add(myCalc.GetResult());
             System.Console.WriteLine($"previous result: {myCalc.GetPreviousResult(0)}");
-
-
-           
+     
             
             
             //Divide by zero 
@@ -53,7 +52,8 @@ namespace Calculator.Console
             System.Console.WriteLine(myCalc.error);
             System.Console.WriteLine($"2147483647*2147483647 = {myCalc.GetResult()}");
 
-          
+            myCalc.Dispose();
+            calc.Dispose();
             System.Console.ReadLine();
 
         }
