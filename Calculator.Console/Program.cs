@@ -16,12 +16,6 @@ namespace Calculator.Console
             myCalc.arrayResults = new ArrayList();
             System.Console.WriteLine($"5 + 1 = {myCalc.GetResult()}");
 
-            CalculatorPlus calc = new CalculatorPlus();
-           
-            System.Console.WriteLine(calc.Calculate("10-2*6/4").ToString());
-
-
-
             myCalc.arrayResults.Add(myCalc.GetResult());
             myCalc.SetLeft("3");
             myCalc.SetRight("9");
@@ -51,6 +45,11 @@ namespace Calculator.Console
             myCalc.Calculate();
             System.Console.WriteLine(myCalc.error);
             System.Console.WriteLine($"2147483647*2147483647 = {myCalc.GetResult()}");
+
+            System.Console.WriteLine();
+            CalculatorPlus calc = new CalculatorPlus();
+            System.Console.WriteLine($"The result of the equation {calc._equationToCompute} = {calc.Calculate("10-5*6/4-1+12*4").ToString()}");
+
 
             myCalc.Dispose();
             calc.Dispose();

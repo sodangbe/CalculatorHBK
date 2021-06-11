@@ -14,18 +14,19 @@ namespace CalculatorHBK
         
         public CalculatorPlus()
         {
-            
+       
+        
         }
 
-        public int Calculate(string _equationToCompute)
+        public int Calculate(string equationToCompute)
         {
-           // string[] equation = { "10", "-", "2", "*", "6", "/", "4" };
-             //var _equationToCompute = "10-2*6/4";
+            // string[] equation = { "10", "-", "2", "*", "6", "/", "4" };
+            //var _equationToCompute = "10-2*6/4";
             // var results = Regex.Split(_equationToCompute, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
 
             //string[] equation = new string[results.Count];
-
-            string[] equation = convertToArrayOfString(_equationToCompute);
+            this._equationToCompute = equationToCompute;
+            string[] equation = convertToArrayOfString(equationToCompute);
 
             for (int i = 1; i < equation.Length - 1; i++)
             {
@@ -34,10 +35,18 @@ namespace CalculatorHBK
                 switch (item)
                 {
                     case "*":
-                        num = Convert.ToInt32(equation[i - 1]) * Convert.ToInt32(equation[i + 1]);
+                        //num = Convert.ToInt32(equation[i - 1]) * Convert.ToInt32(equation[i + 1]);
+                        SetOperator(item);
+                        SetLeft(equation[i - 1]);
+                        SetRight(equation[i + 1]);
+                        num = Calculate();
                         break;
                     case "/":
-                        num = Convert.ToInt32(equation[i - 1]) / Convert.ToInt32(equation[i + 1]);
+                        //num = Convert.ToInt32(equation[i - 1]) / Convert.ToInt32(equation[i + 1]);
+                        SetOperator(item);
+                        SetLeft(equation[i - 1]);
+                        SetRight(equation[i + 1]);
+                        num = Calculate();
                         break;
                 }
                 if (num > 0)
@@ -59,10 +68,18 @@ namespace CalculatorHBK
                 switch (item)
                 {
                     case "+":
-                        num = Convert.ToInt32(equation[i - 1]) + Convert.ToInt32(equation[i + 1]);
+                        //num = Convert.ToInt32(equation[i - 1]) + Convert.ToInt32(equation[i + 1]);
+                        SetOperator(item);
+                        SetLeft(equation[i - 1]);
+                        SetRight(equation[i + 1]);
+                        num = Calculate();
                         break;
                     case "-":
-                        num = Convert.ToInt32(equation[i - 1]) - Convert.ToInt32(equation[i + 1]);
+                        //num = Convert.ToInt32(equation[i - 1]) - Convert.ToInt32(equation[i + 1]);
+                        SetOperator(item);
+                        SetLeft(equation[i - 1]);
+                        SetRight(equation[i + 1]);
+                        num = Calculate();
                         break;
                 }
                 if (num > 0)
@@ -73,7 +90,7 @@ namespace CalculatorHBK
                 }
             }
             string total = string.Join("", equation);
-            //display what x is
+           
            return int.Parse(total);
 
            
@@ -84,7 +101,13 @@ namespace CalculatorHBK
         {
            List<string> newList =  Regex.Split(equation, @"\s*([-+/*])\s*").Where(n => !string.IsNullOrEmpty(n)).ToList();
 
-            return newList.ToArray();
+            bool firststringisNumeric = IsNumeric(newList[0]);
+            bool laststringisNumeric = IsNumeric(newList[newList.Count - 1]);
+
+            if (firststringisNumeric && laststringisNumeric)
+                return newList.ToArray();
+            else
+                return new string[0];
         }
        
     }
