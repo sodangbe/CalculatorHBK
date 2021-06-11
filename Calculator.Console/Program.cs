@@ -48,7 +48,45 @@ namespace Calculator.Console
 
             System.Console.WriteLine();
             CalculatorPlus calc = new CalculatorPlus();
-            System.Console.WriteLine($"The result of the equation {calc._equationToCompute} = {calc.Calculate("10-5*6/4-1+12*4").ToString()}");
+
+            System.Console.WriteLine($"1 - The result of the equation 4-1+12*4 = {calc.Calculate("4-1+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("4-1+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine($"2 - The result of the equation 10-5*6 = {calc.Calculate("10-5+6").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("10-5+6"));
+            calc.Dispose();
+            System.Console.WriteLine($"3 -The result of the equation 6/4+12*4 = {calc.Calculate("6/4+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("6/4+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine($"4 -The result of the equation 1+12*4 = {calc.Calculate("1+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("1+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine($"5 -The result of the equation 105*64+2 = {calc.Calculate("105*64+2").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("105*64+2"));
+            calc.Dispose();
+            System.Console.WriteLine($"6 -The result of the equation 41+12*4 = {calc.Calculate("41+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("41+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine($"7 -The result of the equation 10-5*6/4 = {calc.Calculate("10-5*6/4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("10-5*6/4"));
+            calc.Dispose();
+            System.Console.WriteLine($"8 -The result of the equation 105*6+12*4 = {calc.Calculate("105*6+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("105*6+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine($"9 -The result of the equation 64-112/4 = {calc.Calculate("64-112/4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("64-112/4"));
+            calc.Dispose();
+            System.Console.WriteLine($"10 - The result of the equation 10*6/4-1+12*4 = {calc.Calculate("10*6/4-1+12*4").ToString()}");
+            calc.arrayResults.Add(calc.Calculate("10*6/4-1+12*4"));
+            calc.Dispose();
+            System.Console.WriteLine();
+            System.Console.WriteLine($"The last 10 results of the equation computation by CalculatorPlus:" );
+            foreach(int x in calc.arrayResults)
+            {
+                System.Console.Write($"{x}  ");
+            }
+
+
 
 
             myCalc.Dispose();
